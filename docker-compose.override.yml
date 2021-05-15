@@ -19,12 +19,12 @@ services:
           "-components-path", "/components"
           ]
         volumes:
-          - "./../dapr/components/:/components"
-          - "./../dapr/configuration/:/configuration"
+          - "./dapr/components/:/components"
+          - "./dapr/configuration/:/configuration"
 
     envoy:
         volumes:
-            - ./API-Managment:/etc/envoy
+            - ./src/ApiGateways/Envoy:/etc/envoy
         ports:
             - "10000:10000"
 
@@ -36,8 +36,8 @@ services:
             "-components-path", "/components"
             ]
         volumes:
-            - "./../dapr/components/:/components"
-            - "./../dapr/configuration/:/configuration"
+            - "./dapr/components/:/components"
+            - "./dapr/configuration/:/configuration"
     rabbitmq:
         environment:
           RABBITMQ_DEFAULT_USER: "sample"
@@ -47,8 +47,8 @@ services:
             - "5672:5672"
             - "15672:15672"
         volumes:
-        - ./../storage/rabbitmqdata/lib/:/var/lib/rabbitmq/
-        - ./../storage/rabbitmqdata/log/:/var/log/rabbitmq/
+        - ./storage/rabbitmqdata/lib/:/var/lib/rabbitmq/
+        - ./storage/rabbitmqdata/log/:/var/log/rabbitmq/
 
     zipkin:
         ports:

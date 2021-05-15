@@ -35,7 +35,7 @@ namespace Catalog_Api.Controllers
             //};
             //await daprClient.InvokeBindingAsync("sms", "create", message, metadata);
 
-            await daprClient.PublishEventAsync("rabbitmq", "topicSample", HttpContext.RequestAborted);
+            await daprClient.PublishEventAsync("rabbitmq.pubsub", "topicSample", HttpContext.RequestAborted);
 
 
             var rng = new Random();
