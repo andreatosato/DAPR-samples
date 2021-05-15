@@ -15,10 +15,12 @@ services:
         command: ["./daprd",
           "-app-id", "catalog-api",
           "-app-port", "80",
-          "-config", "/configuration/config.yaml"
+          "-config", "/configuration/config.yaml",
+          "-components-path", "/components"
           ]
         volumes:
-          - "./dapr/configuration/:/configuration"
+          - "./../dapr/components/:/components"
+          - "./../dapr/configuration/:/configuration"
 
     envoy:
         volumes:
@@ -30,10 +32,12 @@ services:
         command: ["./daprd",
             "-app-id", "envoy",
             "-app-port", "80",
-            "-config", "/configuration/config.yaml"
+            "-config", "/configuration/config.yaml",
+            "-components-path", "/components"
             ]
         volumes:
-            - "./dapr/configuration/:/configuration"
+            - "./../dapr/components/:/components"
+            - "./../dapr/configuration/:/configuration"
     rabbitmq:
         environment:
           RABBITMQ_DEFAULT_USER: "sample"
@@ -43,9 +47,9 @@ services:
             - "5672:5672"
             - "15672:15672"
         volumes:
-        - ./storage/rabbitmqdata/lib/:/var/lib/rabbitmq/
-        - ./storage/rabbitmqdata/log/:/var/log/rabbitmq/
+        - ./../storage/rabbitmqdata/lib/:/var/lib/rabbitmq/
+        - ./../storage/rabbitmqdata/log/:/var/log/rabbitmq/
 
     zipkin:
         ports:
-        - "5411:9411"
+        - "9411:9411"
