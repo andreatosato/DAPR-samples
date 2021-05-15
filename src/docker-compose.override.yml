@@ -1,0 +1,51 @@
+version: '3.7'
+services:
+    catalog-api:
+        environment:
+          - ASPNETCORE_ENVIRONMENT=Development
+          - ASPNETCORE_URLS=http://0.0.0.0:80
+          - PATH_BASE=/catalog-api
+          - PORT=80
+        ports:
+          - "5103:80"
+          - "9103:81"
+          - "50001:50001"
+    
+    catalog-api-dapr:
+        command: ["./daprd",
+          "-app-id", "catalog-api",
+          "-app-port", "80",
+          "-config", "/configuration/config.yaml"
+          ]
+        volumes:
+          - "./dapr/configuration/:/configuration"
+
+    envoy:
+        volumes:
+            - ./API-Managment:/etc/envoy
+        ports:
+            - "10000:10000"
+
+    envoy-dapr:
+        command: ["./daprd",
+            "-app-id", "envoy",
+            "-app-port", "80",
+            "-config", "/configuration/config.yaml"
+            ]
+        volumes:
+            - "./dapr/configuration/:/configuration"
+    rabbitmq:
+        environment:
+          RABBITMQ_DEFAULT_USER: "sample"
+          RABBITMQ_DEFAULT_PASS: "sAmple2021"
+          RABBITMQ_DEFAULT_VHOST: "/"
+        ports:        
+            - "5672:5672"
+            - "15672:15672"
+        volumes:
+        - ./storage/rabbitmqdata/lib/:/var/lib/rabbitmq/
+        - ./storage/rabbitmqdata/log/:/var/log/rabbitmq/
+
+    zipkin:
+        ports:
+        - "5411:9411"

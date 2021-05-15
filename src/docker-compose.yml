@@ -1,0 +1,38 @@
+services:
+    catalog-api:
+        container_name: catalog-api
+        image: ${DOCKER_REGISTRY-}catalogapi:${PLATFORM:-linux}-${TAG:-latest}
+        build:
+          context: .
+          dockerfile: ./Catalog-Api/Dockerfile
+        depends_on:
+          - rabbitmq
+    
+    catalog-api-dapr:
+        container_name: catalog-api-dapr
+        image: "daprio/daprd:1.0.0"
+        network_mode: "service:catalog-api"
+        depends_on:
+          - catalog-api
+
+    rabbitmq:
+        container_name: rabbit
+        image: rabbitmq:3-management-alpine
+
+    redis:
+        container_name: redis
+        image: redis:alpine
+
+    envoy:
+        container_name: envoy
+        image: envoyproxy/envoy-alpine:v1.18-latest
+
+    envoy-dapr:
+        container_name: envoy-dapr
+        image: "daprio/daprd:1.0.0"
+        depends_on:
+        - envoy
+    
+    zipkin:
+        container_name: zipkin
+        image: openzipkin/zipkin-slim
