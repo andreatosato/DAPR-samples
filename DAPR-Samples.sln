@@ -13,6 +13,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateways", "ApiGateways", "{6F14CB56-A6E8-464B-9610-FF29B298BB4B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Envoy", "Envoy", "{BB8A1B68-F6D1-4DC0-B395-084A075A0AB6}"
+	ProjectSection(SolutionItems) = preProject
+		src\ApiGateways\Envoy\envoy.yaml = src\ApiGateways\Envoy\envoy.yaml
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{46D3B520-599D-4713-9BD0-E5D264B9428F}"
 EndProject

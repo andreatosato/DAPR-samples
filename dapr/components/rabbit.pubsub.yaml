@@ -8,7 +8,7 @@ spec:
   version: v1
   metadata:
   - name: host
-    value: "amqp://sample:sAmple2021@localhost:5672"
+    value: "amqp://sample:sAmple2021@rabbitmq:5672"
   #- name: durable
   #  value: "false"
   #- name: deletedWhenUnused
