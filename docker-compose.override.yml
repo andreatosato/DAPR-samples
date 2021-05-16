@@ -6,6 +6,8 @@ services:
           - ASPNETCORE_URLS=http://0.0.0.0:80
           - PATH_BASE=/catalog-api
           - PORT=80
+        env_file:
+          - './dapr/envs/developer.env'
         ports:
           - "5103:80"
           - "9103:81"

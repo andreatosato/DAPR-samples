@@ -1,6 +1,7 @@
 ﻿using Dapr.Client;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Services.Shared;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -35,7 +36,7 @@ namespace Catalog_Api.Controllers
             //};
             //await daprClient.InvokeBindingAsync("sms", "create", message, metadata);
 
-            await daprClient.PublishEventAsync("rabbitmq.pubsub", "topicSample", HttpContext.RequestAborted);
+            await daprClient.PublishEventAsync(ComponetHelper.PubSubName, "topicSample", HttpContext.RequestAborted);
 
 
             var rng = new Random();

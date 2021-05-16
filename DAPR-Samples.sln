@@ -36,6 +36,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "configuration", "configurat
 		dapr\configuration\config.yaml = dapr\configuration\config.yaml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Shared", "src\Shared\Services.Shared\Services.Shared.csproj", "{08DA2B1E-A0B4-42E8-BC4C-B44C67328342}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{B62E0FC8-97D8-4BD0-A74D-46A20D3DF930}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B62E0FC8-97D8-4BD0-A74D-46A20D3DF930}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B62E0FC8-97D8-4BD0-A74D-46A20D3DF930}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08DA2B1E-A0B4-42E8-BC4C-B44C67328342}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08DA2B1E-A0B4-42E8-BC4C-B44C67328342}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08DA2B1E-A0B4-42E8-BC4C-B44C67328342}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08DA2B1E-A0B4-42E8-BC4C-B44C67328342}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{B62E0FC8-97D8-4BD0-A74D-46A20D3DF930} = {46D3B520-599D-4713-9BD0-E5D264B9428F}
 		{987CF885-9F43-4372-8522-FCE504CF1ED3} = {EF1F8090-6E2E-4637-B192-4EEFE06D5F7A}
 		{440A66D9-A0C4-4439-ACD9-CE27B2F312C6} = {EF1F8090-6E2E-4637-B192-4EEFE06D5F7A}
+		{08DA2B1E-A0B4-42E8-BC4C-B44C67328342} = {46D3B520-599D-4713-9BD0-E5D264B9428F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {55D23C17-D06F-4C5B-902B-6FBEC883CEAB}
