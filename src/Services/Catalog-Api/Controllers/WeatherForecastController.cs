@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Catalog_Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    //[Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -26,7 +26,7 @@ namespace Catalog_Api.Controllers
             this.daprClient = daprClient;
         }
 
-        [HttpGet]
+        [HttpGet("weather")]
         public async Task<IActionResult> GetAsync()
         {
             //var message = "Welcome to this awesome service";
