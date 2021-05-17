@@ -9,6 +9,8 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 COPY ["Catalog-Api/Catalog-Api.csproj", "Catalog-Api/"]
 COPY ["./../Shared/Services.Shared/Services.Shared.csproj", "Shared/Services.Shared/"]
+COPY ["NuGet.config", "./"]
+
 RUN dotnet restore "Catalog-Api/Catalog-Api.csproj"
 COPY . .
 WORKDIR "/src/Catalog-Api"

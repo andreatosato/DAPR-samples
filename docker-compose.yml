@@ -37,3 +37,7 @@ services:
     zipkin:
         container_name: zipkin
         image: openzipkin/zipkin-slim
+  
+    dapr-placement:
+        container_name: dapr-placement
+        image: "daprio/dapr:1.0.0"
