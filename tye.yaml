@@ -1,0 +1,23 @@
+name: dapr-sample
+extensions:
+- name: dapr
+  log-level: debug
+  components-path: "./dapr/components/"
+services:
+- name: Catalog-Api
+  project: src/Services/Catalog-Api/Catalog-Api.csproj
+
+# Containers you want to run need an image name and set of ports to expose
+- name: rabbitmq
+  image: rabbitmq:3-management
+  bindings:
+    - port: 5672
+      protocol: rabbitmq
+- name: redis
+  image: redis
+  bindings:
+    - port: 6973
+- name: zipkin
+  image: openzipkin/zipkin-slim
+  bindings:
+    - port: 9411

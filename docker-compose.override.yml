@@ -29,6 +29,7 @@ services:
             - ./src/ApiGateways/Envoy:/etc/envoy
         ports:
             - "10000:10000"
+            - "9901:9901"
 
     envoy-dapr:
         command: ["./daprd",
@@ -40,6 +41,7 @@ services:
         volumes:
             - "./dapr/components/:/components"
             - "./dapr/configuration/:/configuration"
+
     rabbitmq:
         environment:
           RABBITMQ_DEFAULT_USER: "sample"
