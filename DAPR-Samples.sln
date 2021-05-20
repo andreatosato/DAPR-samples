@@ -36,7 +36,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "configuration", "configurat
 		dapr\configuration\config.yaml = dapr\configuration\config.yaml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Shared", "src\Shared\Services.Shared\Services.Shared.csproj", "{08DA2B1E-A0B4-42E8-BC4C-B44C67328342}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services.Shared", "src\Shared\Services.Shared\Services.Shared.csproj", "{08DA2B1E-A0B4-42E8-BC4C-B44C67328342}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{709F6C1C-BF2B-4A46-8AD7-0E956F9389B3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dapr-frontend-sample", "dapr-frontend-sample", "{1EBCAB00-FE78-41B3-AEA8-662220DC83A6}"
+	ProjectSection(SolutionItems) = preProject
+		src\Frontend\dapr-frontend-sample\Dockerfile = src\Frontend\dapr-frontend-sample\Dockerfile
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -66,6 +73,7 @@ Global
 		{987CF885-9F43-4372-8522-FCE504CF1ED3} = {EF1F8090-6E2E-4637-B192-4EEFE06D5F7A}
 		{440A66D9-A0C4-4439-ACD9-CE27B2F312C6} = {EF1F8090-6E2E-4637-B192-4EEFE06D5F7A}
 		{08DA2B1E-A0B4-42E8-BC4C-B44C67328342} = {46D3B520-599D-4713-9BD0-E5D264B9428F}
+		{1EBCAB00-FE78-41B3-AEA8-662220DC83A6} = {709F6C1C-BF2B-4A46-8AD7-0E956F9389B3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {55D23C17-D06F-4C5B-902B-6FBEC883CEAB}

@@ -76,6 +76,20 @@ static_resources:
                     socket_address:
                         address: 127.0.0.1
                         port_value: 3500
+    #- name: catalog
+    #  connect_timeout: 0.25s
+    #  type: strict_dns
+    #  lb_policy: round_robin
+    #  load_assignment:
+    #    cluster_name: catalog-api
+    #    endpoints:
+    #    - lb_endpoints:
+    #        - endpoint:
+    #            address:
+    #                socket_address:
+    #                    address: catalog-api
+    #                    port_value: 80
+
     - name: zipkin
       connect_timeout: 1s
       type: STRICT_DNS

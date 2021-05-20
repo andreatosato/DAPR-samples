@@ -4,8 +4,17 @@ extensions:
   log-level: debug
   components-path: "./dapr/components/"
 services:
+- name: Frontend
+  dockerFile: src/Frontend/dapr-frontend-sample/Dockerfile
+  bindings:
+  - protocol: http
+    port: 8081
+
 - name: Catalog-Api
   project: src/Services/Catalog-Api/Catalog-Api.csproj
+  bindings:
+  - protocol: https
+    port: 5103
 
 # Containers you want to run need an image name and set of ports to expose
 - name: rabbitmq

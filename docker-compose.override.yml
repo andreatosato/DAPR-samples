@@ -1,5 +1,9 @@
 version: '3.7'
 services:
+    frontend:
+        ports:
+          - "8081:80"
+          
     catalog-api:
         environment:
           - ASPNETCORE_ENVIRONMENT=Development
@@ -10,8 +14,8 @@ services:
           - './dapr/envs/developer.env'
         ports:
           - "5103:80"
-          - "9103:81"
-          - "50001:50001"
+          #- "9103:81"
+          #- "50001:50001"
     
     catalog-api-dapr:
         command: ["./daprd",
