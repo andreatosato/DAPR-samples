@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Catalog_Api.Controllers
 {
     [ApiController]
-    //[Route("[controller]")]
+    [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -26,7 +26,8 @@ namespace Catalog_Api.Controllers
             this.daprClient = daprClient;
         }
 
-        [HttpGet("weather")]
+        //[HttpGet("weather")]
+        [HttpGet]
         public async Task<IActionResult> GetAsync()
         {
             //var message = "Welcome to this awesome service";
@@ -40,12 +41,13 @@ namespace Catalog_Api.Controllers
 
 
             var rng = new Random();
-            return new OkObjectResult(Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
+            return new OkObjectResult(
+                Enumerable.Range(1, 5).Select(index => new WeatherForecast
+                {
+                    Date = DateTime.Now.AddDays(index),
+                    TemperatureC = rng.Next(-20, 55),
+                    Summary = Summaries[rng.Next(Summaries.Length)]
+                })
                 .ToArray()
             );
         }

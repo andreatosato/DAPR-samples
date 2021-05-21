@@ -19,7 +19,8 @@ namespace Catalog_Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers()
+            services.AddCors();
+            services.AddControllers().AddJsonOptions(j => j.JsonSerializerOptions.PropertyNamingPolicy = null)
                 .AddDapr();
             services.AddSwaggerGen(c =>
             {
@@ -38,6 +39,14 @@ namespace Catalog_Api
             }
 
             app.UseHttpsRedirection();
+
+            app.UseCors(builder =>
+            {
+                builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            });
 
             app.UseRouting();
             app.UseCloudEvents();

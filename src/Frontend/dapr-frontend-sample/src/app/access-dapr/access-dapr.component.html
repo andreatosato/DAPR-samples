@@ -1,0 +1,12 @@
+<p>access TO Dapr</p>
+
+<button (click)="callCatalog()">Call dapr Catalog</button>
+
+<table *ngIf = "weathers !== null">
+    <tr *ngFor = "let row of weathers">
+        <td>{{row.Date | date}}</td>
+        <td>{{row.Summary}}</td>
+        <td>{{row.TemperatureC}}</td>
+        <td>{{row.TemperatureF}}</td>
+    </tr>
+</table>
