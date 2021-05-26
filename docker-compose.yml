@@ -48,6 +48,26 @@ services:
         container_name: zipkin
         image: openzipkin/zipkin-slim
   
+
+    sqlserver:
+        container_name: sqlserver
+        image: mcr.microsoft.com/mssql/server:2019-latest
+        ports:
+        - 1433:1433
+
+    elasticsearch:
+        container_name: elastic-search
+        image: docker.io/bitnami/elasticsearch:7
+
+    kibana:
+        container_name: kibana
+        image: docker.io/bitnami/kibana:7
+        ports:
+          - "5601:5601"
+        depends_on:
+          - elasticsearch
+
+    # Usato solo per gli Actor 
     dapr-placement:
         container_name: dapr-placement
         image: "daprio/dapr:1.0.0"

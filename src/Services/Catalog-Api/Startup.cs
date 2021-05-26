@@ -20,7 +20,8 @@ namespace Catalog_Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            services.AddControllers().AddJsonOptions(j => j.JsonSerializerOptions.PropertyNamingPolicy = null)
+            services.AddControllers()
+                .AddJsonOptions(j => j.JsonSerializerOptions.PropertyNamingPolicy = null)
                 .AddDapr();
             services.AddSwaggerGen(c =>
             {

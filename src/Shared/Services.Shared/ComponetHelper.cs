@@ -2,6 +2,6 @@
 {
     public static class ComponetHelper
     {
-        public static string PubSubName { get; } = System.Environment.GetEnvironmentVariable("PubSubName");
+        public const string PubSubName = "rabbitmq.pubsub"; //{ get; } = System.Environment.GetEnvironmentVariable("PubSubName");
     }
 }

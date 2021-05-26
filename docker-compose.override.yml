@@ -67,7 +67,27 @@ services:
         ports:
         - "9411:9411"
 
+    sqlserver:
+        volumes:
+        - ./storage/sqldata:/var/opt/sqlserver/data
+        - ./storage/sqllog:/var/opt/sqlserver/log
+        environment:
+            SA_PASSWORD: "DaprSample12@="
+            ACCEPT_EULA: "Y"
+            MSSQL_PID: "Developer"
+    
+    
+    elasticsearch:
+        ports:
+        - 9200:9200
+        volumes:
+          - './storage/elasticsearch_data:/bitnami/elasticsearch/data'
+    kibana:
+        volumes:
+          - "./storage/kibana_data:/bitnami/kibana"
+
     dapr-placement:
         command: ["./placement", "-port", "50000", "-log-level", "debug"]
         ports:
             - "50000:50000"
+
