@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccessDaprComponent } from './access-dapr/access-dapr.component';
+import { OpenTelemetryInterceptorModule, OtelColExporterModule, CompositePropagatorModule, OtelWebTracerModule, ZipkinExporterModule } from '@jufab/opentelemetry-angular-interceptor';
+import { DiagLogLevel } from '@opentelemetry/api';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,15 @@ import { AccessDaprComponent } from './access-dapr/access-dapr.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    //Insert module OpenTelemetryInterceptorModule with configuration, HttpClientModule is used for interceptor
+    OpenTelemetryInterceptorModule.forRoot(environment.openTelemetryConfig),
+    //Insert OtelCol exporter module
+    OtelColExporterModule,
+    //Insert propagator module
+    CompositePropagatorModule,
+    OtelWebTracerModule.forRoot(environment.openTelemetryConfig),
+    ZipkinExporterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

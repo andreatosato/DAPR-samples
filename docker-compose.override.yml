@@ -1,8 +1,8 @@
 version: '3.7'
 services:
-    frontend:
-        ports:
-          - "8081:80"
+    #frontend:
+    #    ports:
+    #      - "8081:80"
           
     catalog-api:
         environment:

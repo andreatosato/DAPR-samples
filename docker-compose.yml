@@ -1,12 +1,12 @@
 services:
-    frontend:
-        container_name: frontend
-        image: ${DOCKER_REGISTRY-}frontend:${PLATFORM:-linux}-${TAG:-latest}
-        build:
-            context: src/Frontend/dapr-frontend-sample/
-            dockerfile: Dockerfile
-        depends_on:
-            - envoy
+    #frontend:
+    #    container_name: frontend
+    #    image: ${DOCKER_REGISTRY-}frontend:${PLATFORM:-linux}-${TAG:-latest}
+    #    build:
+    #        context: src/Frontend/dapr-frontend-sample/
+    #        dockerfile: Dockerfile
+    #    depends_on:
+    #        - envoy
 
     catalog-api:
         container_name: catalog-api

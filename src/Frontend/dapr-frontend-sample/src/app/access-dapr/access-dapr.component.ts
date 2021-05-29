@@ -15,8 +15,10 @@ export class AccessDaprComponent implements OnInit {
   }
 
   callCatalog(){
-    this.httpClient.get<Weather[]>("http://localhost:10000/c/weather")
-                   .subscribe(t => this.weathers = t);
+    this.httpClient.get<Weather[]>("http://localhost:10000/c/api/v1/weatherforecast")
+                   .subscribe(t => {
+                     this.weathers = t;
+                    });
   }
 }
 
